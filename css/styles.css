@@ -1,6 +1,51 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*----mis css---*/
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #b6b4b4;
   margin: 0;
   padding: 20px;
 }
@@ -10,4 +55,164 @@ h1 {
   color: #333;
 }
 
+ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+}
 
+li {
+  width: 400px;
+  border: 1px solid grey;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.user-image img {
+  width: 100%;
+}
+
+.user-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+
+}
+
+.user-info {
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 70%;
+}
+
+.user-info h2 {
+  font-size: 20px;
+}
+
+/* codigo DATA
+
+const listaUsuarios = document.getElementById("listaUsuarios")
+
+function getUsers() {
+  fetch("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json())
+  .then(data => {
+    const users = data.map(user => {
+      const {id, address} = user
+      return {...user,
+        age: randomAge(18, 65),
+        img: `../assets/img/${id}.jpeg`,
+        address: `${address.street}, ${address.suite}, ${address.city}`,
+      }
+    }).map(user => {
+      const {name, age, username, img, phone, email, company: {name: companyName}, address} = user
+      const template = `
+      <li>
+        <div class="user-content">
+          <div class="user-info">
+            <h2><strong>Nombre:</strong> ${name}</h2>
+            <p><strong>Edad:</strong> ${age}</p>
+            <p><strong>Usuario:</strong> ${username}</p>
+            <p><strong>Teléfono:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${email}</p>
+          </div>
+          <div class="user-image">
+            <img src="${img}" alt="${name}" /> 
+          </div>
+        </div>
+        <div class="user-company">
+          <p><strong>Compañía:</strong> ${companyName}</p>
+          <p><strong>Dirección:</strong> ${address}</p>
+        </div>
+      </li>
+      `
+      return template
+    }).join("")
+    listaUsuarios.innerHTML = users
+
+  })
+}
+
+function randomAge(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+getUsers()
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e4e4e4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+
+}
+
+li {
+  width: 400px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 12px;
+  background-color: white;
+  
+}
+
+.user-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+}
+
+.user-info {
+  width: 70%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-bottom: 10px;
+
+}
+
+.user-info h2 {
+  font-size: 20px;
+}
+
+.user-image {
+  width: 100px;
+}
+
+.user-image img {
+  width: 100%;
+}
+
+.user-company {
+
+}
+
+
+
+*/
